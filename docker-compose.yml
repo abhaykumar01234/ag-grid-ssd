@@ -32,8 +32,11 @@ services:
       context: .
       dockerfile: node.dockerfile
     container_name: node_server
+    depends_on:
+      - db
     volumes:
       - ./example-project:/var/www
+      - /var/www/node_modules
     ports:
       - "4000:4000"
     networks:
